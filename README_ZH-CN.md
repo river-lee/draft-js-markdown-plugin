@@ -1,8 +1,6 @@
 draft-js-markdown-plugin
 ==================================
-[中文](./README_ZH-CN.md)
-
-An opinionated [DraftJS] plugin for supporting Markdown syntax shortcuts in DraftJS. This plugin works with [DraftJS Plugins], and is a fork of the excellent [`draft-js-markdown-shortcuts-plugin`](https://github.com/ngs/draft-js-markdown-shortcuts-plugin) by [@ngs](https://github.com/ngs). (see [why fork that plugin](#why-fork-the-markdown-shortcuts-plugin) for more info)
+支持Drafjs中Mardkdown 语法快捷方式，这个插件可以工作在[DraftJS Plugins](https://github.com/draft-js-plugins/draft-js-plugins)一起工作。这个插件是从[`draft-js-markdown-shortcuts-plugin`](https://github.com/ngs/draft-js-markdown-shortcuts-plugin)和[`draft-js-markdown-plugin`](https://github.com/withspectrum/draft-js-markdown-plugin)分叉出来。[为什么不要fork这个插件](#why-fork-the-markdown-shortcuts-plugin)
 
 ![screen](screen.gif)
 
@@ -23,7 +21,6 @@ import createMarkdownPlugin from 'draft-js-markdown-plugin';
 import { EditorState } from 'draft-js';
 
 export default class DemoEditor extends Component {
-
   state = {
     editorState: EditorState.createEmpty(),
     plugins: [createMarkdownPlugin()]
@@ -47,7 +44,7 @@ export default class DemoEditor extends Component {
 }
 ```
 
-### Add code block syntax highlighting
+### 添加代码块高亮
 
 Using the [`draft-js-prism-plugin`](https://github.com/withspectrum/draft-js-prism-plugin) you can easily add syntax highlighting support to your code blocks!
 
@@ -205,8 +202,13 @@ const editorPlugins = [focusPlugin, imagePlugin, markdownPlugin];
 ```
 
 ## Why fork the `markdown-shortcuts-plugin`?
+综合来说，`markdown-shortcuts-plugin`和`markdown-plugin`都非常不错，不过前者满足我基本功能外，但是样式部分没有内置和可配置。
+与此同时，我们还需要基于这个项目为基础开发大量一些功能。所以在此基础上再次fork。   
 
-Writing is a core part of our app, and while the `markdown-shortcuts-plugin` is awesome and battle-tested there are a few opinionated things we wanted to do differently. Rather than bother [@ngs](https://github.com/ngs) with tons of PRs, we figured it'd be better to own that core part of our experience fully. 
+差异点:
+ - 支持`draftjs-editor-plugin` 3.x
+ - 增加 index.d.ts 对typescript下使用更加友好
+ - 内置codeblock样式，同时支持覆盖，让你组件更好看
 
 ## License
 
